@@ -65,6 +65,7 @@ code {
     align-items: center;
     border: 1px solid #999;
     background-color: #ddd;
+    user-select: none;
 }
 
 .drum-pad:hover {

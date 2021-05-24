@@ -30,14 +30,12 @@ export const DrumPad = ({ keyChar, keyCode, name, audioUrl }) => {
     }
   }
 
-  useEffect(() => {
+  const handlePointerDown = (e) => {
+    dispatch(setDisplay({text: name}))
+    playAudio()
+  }
 
-    const handleClick = (e) => {
-      if (e.target.id === name) {
-        dispatch(setDisplay({text: name}))
-        playAudio()
-      }
-    }
+  useEffect(() => {
 
     const handleKeyDown = (e) => {
       if (e.repeat) {
@@ -56,12 +54,10 @@ export const DrumPad = ({ keyChar, keyCode, name, audioUrl }) => {
       }
     }
 
-    document.addEventListener('click', handleClick)
     document.addEventListener('keydown', handleKeyDown)
     document.addEventListener('keyup', handleKeyUp)
 
     return () => {
-      document.removeEventListener('click', handleClick)
       document.removeEventListener('keydown', handleKeyDown)
       document.removeEventListener('keyup', handleKeyUp)
     }
@@ -72,6 +68,7 @@ export const DrumPad = ({ keyChar, keyCode, name, audioUrl }) => {
       id={name}
       className='drum-pad'
       style={active ? padDownStyle : {}}
+      onPointerDown={handlePointerDown}
     >
       {keyChar}
       <audio id={keyChar} className='clip' src={audioUrl}></audio>

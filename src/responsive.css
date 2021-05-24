@@ -1,0 +1,9 @@
+@media only screen and (max-width: 500px) {
+    .container#drum-machine {
+        flex-direction: column;
+    }
+
+    .container#control-board {
+        width: 100%;
+    }
+}
