@@ -79,6 +79,7 @@ export const DrumPad = ({ keyChar, keyCode, name, audioUrl }) => {
       onPointerUp={handlePointerUp}
       onPointerCancel={handlePointerUp}
       onPointerLeave={handlePointerUp}
+      onTouchCancel={handlePointerUp}
     >
       {keyChar}
       <audio id={keyChar} className='clip' src={audioUrl}></audio>
