@@ -30,6 +30,9 @@ export const DrumPad = ({ keyChar, keyCode, name, audioUrl }) => {
   }
 
   const handlePointerDown = (e) => {
+    if (e.cancelable) {
+      e.preventDefault()
+    }
     dispatch(setDisplay({text: name}))
     setActive(true)
     playAudio()
@@ -74,6 +77,8 @@ export const DrumPad = ({ keyChar, keyCode, name, audioUrl }) => {
       style={active ? padDownStyle : {}}
       onPointerDown={handlePointerDown}
       onPointerUp={handlePointerUp}
+      onPointerCancel={handlePointerUp}
+      onPointerLeave={handlePointerUp}
     >
       {keyChar}
       <audio id={keyChar} className='clip' src={audioUrl}></audio>
