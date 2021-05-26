@@ -1,9 +1,33 @@
 @media only screen and (max-width: 500px) {
-    .container#drum-machine {
+    .outer-container {
         flex-direction: column;
     }
 
+    .container {
+        font-size: 1rem;
+    }
+
+    .container#drumpad-board, .container#control-board {
+        width: 66vw;
+    }
+
+    .drum-pad {
+        flex: 1 auto 33%;
+        min-height: 22vw;
+    }
+
+    .control-container, .display-container {
+        height: 12vw;
+    }
+
+    .control-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+@media only screen and (max-width: 200px) {
     .container#control-board {
-        width: 100%;
+        display: none;
     }
 }

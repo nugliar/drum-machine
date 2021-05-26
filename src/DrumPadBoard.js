@@ -3,14 +3,6 @@ import { useSelector } from 'react-redux'
 import { DrumPad } from './DrumPad'
 import { selectAllDrumPads } from './soundbankSlice'
 
-const drumPadBoardStyle = {
-  width: '300px',
-  height: '300px',
-  flexWrap: 'wrap',
-  gap: '2%',
-  backgroundColor: '#ccc'
-}
-
 export const DrumPadBoard = () => {
   const drumPads = useSelector(selectAllDrumPads)
 
@@ -28,9 +20,8 @@ export const DrumPadBoard = () => {
 
   return (
       <div
-        id='drum-pad-board'
+        id='drumpad-board'
         className='container'
-        style={drumPadBoardStyle}
       >
         {renderedDrumPads}
       </div>

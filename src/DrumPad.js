@@ -5,7 +5,6 @@ import { setDisplay, selectPower, selectVolume } from './soundbankSlice'
 
 const padDownStyle = {
   backgroundColor: '#ffa331fa',
-  border: 'none',
   borderRadius: '2px'
 }
 
@@ -32,7 +31,12 @@ export const DrumPad = ({ keyChar, keyCode, name, audioUrl }) => {
 
   const handlePointerDown = (e) => {
     dispatch(setDisplay({text: name}))
+    setActive(true)
     playAudio()
+  }
+
+  const handlePointerUp = (e) => {
+    setActive(false)
   }
 
   useEffect(() => {
@@ -69,6 +73,7 @@ export const DrumPad = ({ keyChar, keyCode, name, audioUrl }) => {
       className='drum-pad'
       style={active ? padDownStyle : {}}
       onPointerDown={handlePointerDown}
+      onPointerUp={handlePointerUp}
     >
       {keyChar}
       <audio id={keyChar} className='clip' src={audioUrl}></audio>

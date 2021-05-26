@@ -7,10 +7,8 @@ function App() {
   return (
     <div className="App">
       <div className='outer-container'>
-        <div id='drum-machine' className='container'>
-          <DrumPadBoard />
-          <ControlBoard />
-        </div>
+        <DrumPadBoard />
+        <ControlBoard />
       </div>
     </div>
   );
